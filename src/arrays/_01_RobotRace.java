@@ -17,8 +17,8 @@ Robot[] robots = new Robot[5];
 for (int i = 0; i < robots.length; i++) {
 	robots[i] = new Robot();
 	robots[i].setSpeed(30);
-	robots[i].setX(80*i+100);
-	robots[i].setY(400);
+	robots[i].setX(60*i+100);
+	robots[i].setY(250);
 }
 		//4. make each robot start at the bottom of the screen, side by side, facing up
 
@@ -49,14 +49,19 @@ while (j == false) {
 
 
 	//9. make the robots race around a circular track.
-for (int i = 0; i < robots.length; i++) {
-	for (int k = 0; k < 50; k++) {
-		robots[i].setX(60*i+100);
-		robots[i].setY(250);
-		robots[i].turn(50);
-		robots[i].move(30);
+
+for (int k = 0; k < 24; k++) {
+	for (int i = 0; i < robots.length; i++) {
+		robots[i].turn(10);
+		robots[i].move(ran.nextInt(30)+20);
+	if(robots[i].getY() >= 450) {
+		JOptionPane.showMessageDialog(null,  + i + " is the winner!");
+		break;
+		}
 	}
 }
+
+
 
 
 }
